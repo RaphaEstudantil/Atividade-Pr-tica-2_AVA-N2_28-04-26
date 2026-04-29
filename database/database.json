@@ -1,0 +1,21 @@
+{
+  "clientes": [
+    {
+      "nome": "Yoshio",
+      "bairro": "Novo Aleixo",
+      "endereço": "Rua Cachoeira do Niágara",
+      "número": 330,
+      "telefone": "92982751314",
+      "id": 1
+    },
+    {
+      "nome": "Letícia",
+      "bairro": "Novo Aleixo",
+      "endereço": "Rua Cachoeira do Niágara",
+      "número": 330,
+      "telefone": "92991695667",
+      "id": 2
+    }
+  ],
+  "produtos": []
+}
