@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Distribuidora Hada",
+    "version": "1.0.0",
+    "description": "Sistema de gestão logística e controle de clientes."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor Local"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Insira o token JWT gerado no login."
+      }
+    }
+  },
+  "paths": {
+    "/clientes": {
+      "get": {
+        "summary": "Lista todos os clientes",
+        "tags": ["Clientes"],
+        "responses": {
+          "200": {
+            "description": "Lista retornada com sucesso"
+          }
+        }
+      },
+      "post": {
+        "summary": "Cadastra um novo cliente (Requer Autenticação)",
+        "tags": ["Clientes"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": { "type": "string", "example": "Mercadinho Teste" },
+                  "email": { "type": "string", "example": "contato@teste.com" },
+                  "telefone": { "type": "string", "example": "(92) 99999-8888" },
+                  "endereco": { "type": "string", "example": "Av. dos Testes, 1000" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Cliente criado com sucesso" },
+          "401": { "description": "Acesso negado (Token inválido ou ausente)" }
+        }
+      }
+    }
+  }
+}
